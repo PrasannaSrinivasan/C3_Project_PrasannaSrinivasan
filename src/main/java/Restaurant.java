@@ -70,7 +70,14 @@ public class Restaurant {
     }
 
     public Double calculateTotalCost(List<String> itemNames){
-        return null;
+        Double totalCost = 0.0;
+        for (int i = 0; i < this.menu.size() ; i++ ){
+            Item item = this.menu.get(i);
+            if(itemNames.contains( item.getName())){
+                totalCost+= item.getPrice();
+            }
+        }
+        return totalCost;
     }
 
 }

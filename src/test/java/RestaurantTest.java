@@ -80,11 +80,7 @@ class RestaurantTest{
         itemNames.add("Meat Balls"); // 129
         itemNames.add("Hot Dogs"); // 259
         itemNames.add("Vegetable lasagne"); // 269 - Default Menu Item
-
-        assertEquals(restaurant.calculateTotalCost(itemNames), 657); // 657
-
-
-
+        assertEquals(restaurant.calculateTotalCost(itemNames), 657); // 657 - Total Cost
 
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

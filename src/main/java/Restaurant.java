@@ -69,4 +69,8 @@ public class Restaurant {
         return name;
     }
 
+    public Double calculateTotalCost(List<String> itemNames){
+        return null;
+    }
+
 }

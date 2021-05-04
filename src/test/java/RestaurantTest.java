@@ -6,6 +6,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,6 +69,23 @@ class RestaurantTest{
         restaurant = createRestaurant("Amelie's cafe","Chennai",LocalTime.parse("10:30:00"),LocalTime.parse("22:00:00"));
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+
+    @Test
+    public void get_total_cost_of_menu_selected(){
+        restaurant = createRestaurant("Amelie's cafe","Chennai",LocalTime.parse("10:30:00"),LocalTime.parse("22:00:00"));
+        restaurant.addToMenu("Meat Balls",129);
+        restaurant.addToMenu("Hot Dogs", 259);
+        List<String> itemNames = new ArrayList<String>();
+        itemNames.add("Meat Balls"); // 129
+        itemNames.add("Hot Dogs"); // 259
+        itemNames.add("Vegetable lasagne"); // 269 - Default Menu Item
+
+        assertEquals(restaurant.calculateTotalCost(itemNames), 657); // 657
+
+
+
+
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
